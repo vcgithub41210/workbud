@@ -1,4 +1,7 @@
-const Workout = require('../models/workoutModel')
+const {
+    Workout,
+    PostImage
+}= require('../models/workoutModel');
 const mongoose = require('mongoose');
 
 //get workouts

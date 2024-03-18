@@ -2,6 +2,21 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
+const postSchema = new Schema({
+    title: {
+        type: String,
+        required: true
+    },
+    content: {
+        type: String,
+        required: true
+    },
+    imagePost: {
+        type: Buffer,
+        required: false
+    }
+},{timestamps: true})
+
 const workoutSchema = new Schema({
     title: {
         type: String,
@@ -15,6 +30,9 @@ const workoutSchema = new Schema({
         type: Number,
         required: true
     }
-},{timestamps: true})
+},{timestamps: false})
 
-module.exports = mongoose.model('Workout', workoutSchema)
+module.exports = {
+    Workout: mongoose.model('Workout', workoutSchema),
+    PostImage : mongoose.model('PostImage', postSchema)
+}
